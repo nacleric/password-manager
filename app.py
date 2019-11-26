@@ -1,28 +1,5 @@
-from sqlalchemy import Column, Integer, String, Boolean, create_engine
-from sqlalchemy.ext.declarative import declarative_base
-import base64
-
-# https://docs.sqlalchemy.org/en/13/orm/tutorial.html
-# connects to db location (location not none rn)
-engine = create_engine('sqlite:///:memory:', echo=True)
-# declared mapping
-Base = declarative_base()
-
-
-class Account(Base):
-    __tablename__ = 'account'
-    id = Column(Integer, primary_key=True)
-    username = Column(String)
-    password_hash = Column(String)
-    important = Column(Boolean)
-
-    def __repr__(self):
-        return '<ID: {}, Username: {}, Password: {}, important: {}>'.format(
-            self.id,
-            self.username,
-            self.password_hash,
-            self.important
-        )
+from model import Account
+# import base64
 
 
 def list_passwords() -> None:
