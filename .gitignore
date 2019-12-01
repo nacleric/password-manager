@@ -4,3 +4,4 @@
 /test.py
 /test.db
 /app.db
+/.mypy_cache
